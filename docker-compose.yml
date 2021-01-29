@@ -9,8 +9,8 @@ services:
             - ${CONFIG}:/mnt
             - /mnt/c/temp:/tempExpose
         #command: git clone https://github.com/capnmidnight/Calla ${CONFIG}/Calla
-        command: busybox top
-        #command: sh /usr/share/nginx/html/entrypoint.sh
+        #command: busybox top
+        command: sh /mnt/Calla/etc/entrypoint.sh
         ports:
             - '8282:80'
     # Frontend
