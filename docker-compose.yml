@@ -7,9 +7,6 @@ services:
         volumes:
             - ${CONFIG}/Calla/Calla-Site/wwwroot:/usr/share/nginx/html
             - ${CONFIG}:/mnt
-            - /mnt/c/temp:/tempExpose
-        #command: git clone https://github.com/capnmidnight/Calla ${CONFIG}/Calla
-        #command: busybox top
         command: sh /mnt/Calla/etc/entrypoint.sh
         ports:
             - '8282:80'
