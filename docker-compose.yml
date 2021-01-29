@@ -18,12 +18,12 @@ services:
             - '${HTTP_PORT}:80'
             - '${HTTPS_PORT}:443'
         volumes:
-            - JITSI_HOST=localhost
-            - JVB_HOST=localhost
-            - JVB_MUC=localhost
             - ${CONFIG}/web:/config:Z
             - ${CONFIG}/transcripts:/usr/share/jitsi-meet/transcripts:Z
         environment:
+            - JITSI_HOST=localhost
+            - JVB_HOST=localhost
+            - JVB_MUC=localhost
             - ENABLE_LETSENCRYPT
             - ENABLE_HTTP_REDIRECT
             - ENABLE_HSTS

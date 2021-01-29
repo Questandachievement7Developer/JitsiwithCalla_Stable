@@ -27,11 +27,8 @@ consider_bosh_secure = true;
 
 
 
-
-  
-
-cross_domain_websocket = { "https://localhost:8443","meet.jitsi" }
-cross_domain_bosh = { "https://localhost:8443","meet.jitsi" }
+cross_domain_websocket = true
+cross_domain_bosh = true
 
 
 VirtualHost "meet.jitsi"
@@ -59,10 +56,18 @@ VirtualHost "meet.jitsi"
         "speakerstats";
         "conference_duration";
         
+        "muc_lobby_rooms";
+        
         
         
     }
 
+    
+    main_muc = "muc.meet.jitsi"
+    lobby_muc = "lobby.meet.jitsi"
+    
+    muc_lobby_whitelist = { "recorder.meet.jitsi" }
+    
     
 
     speakerstats_component = "speakerstats.meet.jitsi"
@@ -116,4 +121,10 @@ Component "speakerstats.meet.jitsi" "speakerstats_component"
 Component "conferenceduration.meet.jitsi" "conference_duration_component"
     muc_component = "muc.meet.jitsi"
 
+
+Component "lobby.meet.jitsi" "muc"
+    storage = "memory"
+    restrict_room_creation = true
+    muc_room_locking = false
+    muc_room_default_public_jids = true
 
