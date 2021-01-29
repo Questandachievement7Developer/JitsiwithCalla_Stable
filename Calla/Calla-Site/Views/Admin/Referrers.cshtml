@@ -1,0 +1,23 @@
+@{
+    Layout = "_AdminPage";
+    ViewData["Title"] = "Referrers";
+}
+
+@model string[]
+
+
+@if (Model.Length == 0)
+{
+    <p>No Content</p>
+}
+else
+{
+    <ul>
+        @foreach(var row in Model)
+        {
+            <li>
+                <a href="@row" target="_blank" rel="noreferrer nofollow">@row</a>
+            </li>
+        }
+    </ul>
+}

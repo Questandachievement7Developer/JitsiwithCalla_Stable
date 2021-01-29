@@ -1,0 +1,368 @@
+#login form > div {
+    display: grid;
+    grid-template-columns: 1fr 2fr 1fr;
+    margin-bottom: 0.5em;
+}
+
+    #login form > div > * {
+        grid-column: 1/4;
+    }
+
+body,
+#frontBuffer {
+    background-image: url("../images/starfield.jpg");
+}
+
+#frontBuffer {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    touch-action: none;
+}
+
+#emailControl > *:last-child {
+    opacity: 0.5;
+    font-size: 80%;
+    padding-left: 2em;
+    font-style: italic;
+    text-align: right;
+}
+
+#roomSelectorControl > select,
+#roomEntryControl > input {
+    grid-column: 1/3 !important;
+}
+
+#roomSelectorControl > button,
+#roomEntryControl > button {
+    grid-column: 3/4 !important;
+}
+
+
+
+#controls {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    display: grid;
+    grid-template-columns: repeat(4, 3em) auto repeat(2, 3em);
+    grid-template-rows: 3em 3em 9.5em 3em auto 3em;
+    grid-row-gap: 5px;
+    row-gap: 5px;
+    grid-column-gap: 5px;
+    column-gap: 5px;
+    pointer-events: none;
+    padding: 5px;
+}
+
+    button,
+    input,
+    #controls .comboButton {
+        pointer-events: all;
+    }
+
+    button,
+    #controls .comboButton {
+        font-style: normal;
+        text-decoration: none;
+        height: 100%;
+    }
+
+    #controls .comboButton {
+        margin: auto;
+        background-color: unset;
+        padding: unset;
+    }
+
+    #controls > button {
+        width: 100%;
+    }
+
+    #controls button {
+        display: inline-grid;
+        padding: 5px;
+        grid-template-rows: 1fr 1fr;
+        font-size: 14pt;
+    }
+
+        #controls button > div:first-child {
+            font-size: 100%;
+        }
+
+        #controls button > div:last-child {
+            font-size: 50%;
+        }
+
+    #controls .comboButton > button {
+        border: none;
+        border-radius: 0;
+        width: unset;
+        display: inline-grid;
+    }
+
+#optionsButton {
+    grid-area: 1/1/2/2;
+}
+
+#instructionsButton {
+    grid-area: 1/2/2/3;
+}
+
+#shareButton {
+    grid-area: 1/3/2/4;
+}
+
+#fullscreenButton {
+    grid-area: 1/-3/2/-2;
+}
+
+#leaveButton {
+    grid-area: 1/-2/2/-1;
+}
+
+#toggleAudioControl {
+    grid-area: -2/1/-1/4;
+    margin-left: 0 !important;
+}
+
+#emojiControl {
+    grid-area: -2/3/-1/-3;
+}
+
+#zoomInButton {
+    grid-area: 2/-2/3/-1;
+}
+
+#zoomOutButton {
+    grid-area: 4/-2/5/-1;
+}
+
+#zoomSliderContainer {
+    grid-area: 3/-2/4/-1;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+#zoomSlider {
+    width: 8em;
+    transform-origin: left center;
+    transform: rotate(270deg) translate(-8.5em, 1.5em);
+}
+
+
+
+button:hover {
+    background-color: rgba(117, 117, 117, 0.50);
+    text-decoration: none;
+}
+
+button,
+#controls .comboButton,
+.dialog {
+    border: solid 1px rgba(255, 255, 255, 0.5);
+    color: white;
+    border-radius: 0;
+}
+
+#controls button,
+.dialog {
+    backdrop-filter: blur(10px);
+}
+
+    button,
+    .dialog,
+    .dialog > .header > button.tabSelected,
+    .dialog > .content {
+        background-color: rgba(0, 0, 0, 0.25);
+    }
+
+        .dialog > .header > button.tabUnselected {
+            background-color: transparent;
+        }
+
+        .dialog > .header > button {
+            box-shadow: none;
+        }
+
+        .dialog select {
+            width: 100%;
+        }
+
+        .dialog select,
+        .dialog input {
+            padding: 0.5em;
+            background-color: rgba(0,0,0,0.25);
+            color: white;
+        }
+
+
+.dialog {
+    position: fixed;
+    transform: translateX(-50%) translateX(50vw);
+    top: 4em;
+    max-width: calc(100% - 8em);
+    max-height: calc(100% - 8em);
+    display: grid;
+}
+
+    .dialog.dialog-1 {
+        grid-template-rows: auto 1fr;
+    }
+
+    .dialog.dialog-2 {
+        grid-template-rows: auto auto 1fr;
+    }
+
+    .dialog.dialog-3 {
+        grid-template-rows: auto auto 1fr auto;
+    }
+
+.dialogTitle {
+    padding: 0.5em;
+    background-color: rgba(0, 0, 127, 0.5);
+    display: grid;
+    grid-template-columns: auto 3em;
+    grid-row: 1/2;
+}
+
+.dialog > .header {
+    grid-row: 2/3;
+}
+
+.dialog > .content {
+    padding: 0.5em;
+    overflow-y: scroll;
+    height: 100%;
+}
+
+.dialog.dialog-1 > .content {
+    grid-row: 2/3;
+}
+
+.dialog.dialog-2 > .content,
+.dialog.dialog-3 > .content {
+    grid-row: 3/4;
+}
+
+.dialog > .footer {
+    grid-row: 4/5;
+}
+
+.dialog h1,
+.dialog h1 a,
+.dialog h2,
+.dialog h2 a,
+.dialog h3,
+.dialog h3 a,
+.dialog h4,
+.dialog h4 a,
+.dialog h5,
+.dialog h5 a,
+.dialog h6,
+.dialog h6 a {
+    color: white;
+}
+
+.dialogTitle > h1 {
+    display: inline-block;
+    font-size: 150%;
+    grid-area: 1/1/2/2;
+}
+
+.dialogTitle > button {
+    grid-area: 1/-2/2/-1;
+    font-style: normal;
+    padding: 0.5em;
+}
+
+.dialog > .header > button {
+    border-radius: 5px 5px 0 0;
+}
+
+menu {
+    position: absolute;
+}
+
+menuitem {
+    display: block;
+}
+
+#emoji > .content button {
+    padding: 0;
+    font-size: 200%;
+    font-family: "Noto Color Emoji";
+    width: 2em;
+}
+
+#emoji > .content > h1 > a {
+    text-decoration: none;
+    text-transform: capitalize;
+}
+
+#users {
+    min-width: 50%;
+}
+
+    #users > .content {
+        display: grid;
+        grid-column-gap: 5px;
+        column-gap: 5px;
+        grid-template-rows: 1fr auto;
+        grid-template-columns: auto 1fr auto;
+        overflow: hidden;
+    }
+
+#chatUsers {
+    grid-area: 1/1/2/2;
+}
+
+#chatMessages {
+    grid-area: 1/2/2/4;
+    min-height: 5em;
+}
+
+#chatUsers, #chatMessages {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    padding: 0.25em;
+    overflow-y: scroll;
+}
+
+    #chatMessages > div:nth-child(odd) {
+        grid-column: 1/2;
+        color: #ccc;
+        margin-right: 0.5em;
+    }
+
+    #chatMessages > div:nth-child(even) {
+        grid-column: 2/3;
+    }
+
+#chatEntry {
+    grid-area: 2/1/3/3;
+}
+
+#chatSend {
+    grid-area: 2/3/3/4;
+}
+
+.dialog h1 {
+    font-size: 1em;
+}
+
+.dialog h2 {
+    font-size: 0.75em;
+}
+
+@media (min-width: 600px) {
+    .dialog h1 {
+        font-size: 2em;
+    }
+
+    .dialog h2 {
+        font-size: 1.5em;
+    }
+}

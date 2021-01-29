@@ -1,0 +1,56 @@
+import type { Emoji } from "kudzu/emoji/Emoji";
+import { TypedEvent, TypedEventBase } from "kudzu/events/EventBase";
+import { IOpenable } from "./ops";
+interface ButtonLayerEvents {
+    toggleOptions: TypedEvent<"toggleOptions">;
+    tweet: TypedEvent<"tweet">;
+    leave: TypedEvent<"leave">;
+    toggleFullscreen: TypedEvent<"toggleFullscreen">;
+    toggleInstructions: TypedEvent<"toggleInstructions">;
+    toggleUserDirectory: TypedEvent<"toggleUserDirectory">;
+    toggleAudio: TypedEvent<"toggleAudio">;
+    toggleVideo: TypedEvent<"toggleVideo">;
+    changeDevices: TypedEvent<"changeDevices">;
+    emote: TypedEvent<"emote">;
+    selectEmoji: TypedEvent<"selectEmoji">;
+    zoomChanged: TypedEvent<"zoomChanged">;
+}
+export declare class ButtonLayer extends TypedEventBase<ButtonLayerEvents> implements IOpenable {
+    element: HTMLDivElement;
+    optionsButton: HTMLButtonElement;
+    instructionsButton: HTMLButtonElement;
+    shareButton: HTMLButtonElement;
+    showUsersButton: HTMLButtonElement;
+    fullscreenButton: HTMLButtonElement;
+    leaveButton: HTMLButtonElement;
+    toggleAudioButton: HTMLButtonElement;
+    toggleAudioLabel: HTMLDivElement;
+    toggleVideoButton: HTMLButtonElement;
+    toggleVideoLabel: HTMLDivElement;
+    changeDevicesButton: HTMLButtonElement;
+    emoteButton: HTMLDivElement;
+    zoomInButton: HTMLButtonElement;
+    slider: HTMLInputElement;
+    zoomOutButton: HTMLButtonElement;
+    private _audioEnabled;
+    private _videoEnabled;
+    constructor(zoomMin: number, zoomMax: number);
+    get isFullscreen(): boolean;
+    set isFullscreen(value: boolean);
+    get style(): CSSStyleDeclaration;
+    isOpen(): boolean;
+    setOpen(v: boolean, displayType?: string): void;
+    toggleOpen(displayType?: string): void;
+    hide(): void;
+    show(): void;
+    get enabled(): boolean;
+    set enabled(v: boolean);
+    get audioEnabled(): boolean;
+    set audioEnabled(value: boolean);
+    get videoEnabled(): boolean;
+    set videoEnabled(value: boolean);
+    setEmojiButton(emoji: Emoji): void;
+    get zoom(): number;
+    set zoom(v: number);
+}
+export {};
